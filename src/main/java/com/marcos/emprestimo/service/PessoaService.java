@@ -1,6 +1,7 @@
 package com.marcos.emprestimo.service;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,13 +12,18 @@ import com.marcos.emprestimo.entities.EmprestimoGarantia;
 import com.marcos.emprestimo.entities.EmprestimoPessoal;
 import com.marcos.emprestimo.entities.IEmprestimo;
 import com.marcos.emprestimo.entities.Pessoa;
-import com.marcos.emprestimo.repository.PessoaRespository;
+import com.marcos.emprestimo.repository.PessoaRepository;
 
 @Service
 public class PessoaService {
 
 	@Autowired
-	public PessoaRespository repository;
+	public PessoaRepository repository;
+	
+	public List<Pessoa> findAll(){
+	List<Pessoa> pessoas = repository.findAll();
+	return pessoas;	
+	}
 
 	public PessoaDTO insertPessoa(Pessoa pessoa) {
 		Pessoa obj = repository.save(pessoa);

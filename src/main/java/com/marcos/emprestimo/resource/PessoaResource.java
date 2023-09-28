@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.marcos.emprestimo.dto.PessoaDTO;
 import com.marcos.emprestimo.entities.Pessoa;
-import com.marcos.emprestimo.repository.PessoaRespository;
 import com.marcos.emprestimo.service.PessoaService;
 
 @RestController
@@ -20,14 +19,11 @@ import com.marcos.emprestimo.service.PessoaService;
 public class PessoaResource {
 
 	@Autowired
-	public PessoaRespository repository;
-
-	@Autowired
 	public PessoaService service;
 
 	@GetMapping
 	public ResponseEntity<List<Pessoa>> findAll() {
-		List<Pessoa> pessoas = repository.findAll();
+		List<Pessoa> pessoas = service.findAll();
 		return ResponseEntity.ok(pessoas);
 
 	}

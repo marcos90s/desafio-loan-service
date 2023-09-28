@@ -25,7 +25,7 @@ public class Pessoa implements Serializable {
 	private Double salario;
 	private String location;
 
-	@OneToMany()
+	@OneToMany(mappedBy = "pessoa")
 	private List<IEmprestimo> loans = new ArrayList<>();
 
 	public String getName() {
